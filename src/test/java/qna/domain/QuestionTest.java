@@ -58,15 +58,7 @@ public class QuestionTest {
         }).isInstanceOf(CannotDeleteException.class);
     }
 
-    @Test
-    public void 같은_작성자_같은_답변글_포함_다른_답변글_CannotDeleteException() {
-        assertThatThrownBy(() -> {
-            Question question = new Question("title3", "contents3").writeBy(UserTest.JAVAJIGI);
-            question.addAnswer(AnswerTest.A1);
-            question.addAnswer(AnswerTest.A2);
-            question.getDeleteHistories(UserTest.JAVAJIGI, UserTest.DEFAULT_TIME);
-        }).isInstanceOf(CannotDeleteException.class);
-    }
+
 
     @Test
     public void 질문_삭제이력_비교() {

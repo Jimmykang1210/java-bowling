@@ -22,22 +22,23 @@ public class Answers {
         return answersDeleteHistories(question.getDeleteHistory(createTime), createTime);
     }
 
-    private List<DeleteHistory> answersDeleteHistories(DeleteHistory questionDeleteHistory, LocalDateTime createTime) {
+    private List<DeleteHistory> answersDeleteHistories(DeleteHistory deleteQuestionHistory, LocalDateTime createTime) {
         List<DeleteHistory> deleteHistories = new ArrayList<>();
-        deleteHistories.add(questionDeleteHistory);
+        deleteHistories.add(deleteQuestionHistory);
         answers.stream()
-                    .map(answer -> answer.getDeleteHistory(createTime))
-                    .forEach(deleteHistory -> deleteHistories.add(deleteHistory));
+                    .forEach(answer -> deleteHistories.add(answer.getDeleteHistory(createTime)));
         return deleteHistories;
     }
 
     private void validateAnswersDeleted(User loginUser) throws CannotDeleteException {
-        Optional<Answer> otherWriterAnswer = answers.stream()
-                                                        .filter(answer -> !answer.isOwner(loginUser))
-                                                        .findFirst();
-        if (otherWriterAnswer.isPresent()) {
+        if (!isOwner(loginUser)) {
             throw new CannotDeleteException(EXCEPTION_MESSAGE_OTHER_PERSON_ANSWER_EXIST);
         }
+    }
+
+    private boolean isOwner(User loginUser) {
+        return answers.stream()
+                            .allMatch(answer -> answer.isOwner(loginUser));
     }
 
     @Override
