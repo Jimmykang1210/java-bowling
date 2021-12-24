@@ -22,12 +22,12 @@ public class Answers {
         return answersDeleteHistories(question.getDeleteHistory(createTime), createTime);
     }
 
-    private List<DeleteHistory> answersDeleteHistories(DeleteHistory questionDeleteHistory, LocalDateTime createTime) {
+    private List<DeleteHistory> answersDeleteHistories(DeleteHistory deleteQuestionHistory, LocalDateTime createTime) {
         List<DeleteHistory> deleteHistories = new ArrayList<>();
-        deleteHistories.add(questionDeleteHistory);
+        deleteHistories.add(deleteQuestionHistory);
         answers.stream()
                     .map(answer -> answer.getDeleteHistory(createTime))
-                    .forEach(deleteHistory -> deleteHistories.add(deleteHistory));
+                    .forEach(deleteHistories::add);
         return deleteHistories;
     }
 
