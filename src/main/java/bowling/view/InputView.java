@@ -13,7 +13,7 @@ public class InputView {
     }
 
     public static int requestPitchingResult(int number) {
-        System.out.format(REQUEST_PITCHING_RESULT, (number + 1));
+        System.out.format(REQUEST_PITCHING_RESULT, number);
         return scanner.nextInt();
     }
 }
