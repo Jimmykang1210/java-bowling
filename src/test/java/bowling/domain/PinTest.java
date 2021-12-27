@@ -2,7 +2,7 @@ package bowling.domain;
 
 import org.junit.Test;
 
-public class ResultsTest {
+public class PinTest {
     @Test
     public void init() {
 

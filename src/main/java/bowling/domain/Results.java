@@ -3,9 +3,9 @@ package bowling.domain;
 import java.util.List;
 
 public class Results {
-    private final List<Pins> pins;
+    private final List<Pin> pins;
 
-    public Results(List<Pins> pins) {
+    public Results(List<Pin> pins) {
         this.pins = pins;
     }
 }

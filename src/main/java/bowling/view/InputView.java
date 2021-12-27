@@ -1,5 +1,7 @@
 package bowling.view;
 
+import bowling.domain.FrameIndex;
+
 import java.util.Scanner;
 
 public class InputView {
@@ -12,8 +14,8 @@ public class InputView {
         return scanner.next();
     }
 
-    public static int requestPitchingResult(int number) {
-        System.out.format(REQUEST_PITCHING_RESULT, number);
+    public static int requestPitchingResult(FrameIndex index) {
+        System.out.format(REQUEST_PITCHING_RESULT, index.getIndex());
         return scanner.nextInt();
     }
 }

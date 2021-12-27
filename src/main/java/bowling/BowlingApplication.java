@@ -10,8 +10,8 @@ public class BowlingApplication {
         ResultView.responseBowlingDefaultFrame(bowlingGame.getPlayer());
 
         if (bowlingGame.hasNext()) {
-            int fallPinCount = InputView.requestPitchingResult(bowlingGame.getFrameNumber());
-            bowlingGame.pitch(fallPinCount);
+            int fallPinCount = InputView.requestPitchingResult(bowlingGame.getFrameIndex());
+            bowlingGame.start(fallPinCount);
             ResultView.responseBowlingFrame(bowlingGame.getPlayer(), bowlingGame.getFrames());
         }
 //        Results results = new Results();

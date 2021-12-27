@@ -20,14 +20,18 @@ public class BowlingGame {
         this.frames = frames;
     }
 
-    public void pitch(int fallPinCount) {
+    public void start(int fallPinCount) {
+        // 지금 몇 프레임?
+        // 지금 몇번째 투구?
+
+
 
         // 첫번째 피치인 경우, pin 점수 저장, 10점이면 frame 종료
         // 두번째 피치인 경우, pin 점수 저장, 종료
         // 마지막 frame인 경우, 첫번째 피치에서 10점이어도 2번의 pitch 더 제공
         // 마지막 frame인 경우, 두번째 피치에서 10점이여도 1번의 pitch 더 제공
         // 마지막 frame인 경우, 두번째 피치에서 10점이 아니도 종료
-        new Pins(fallPinCount);
+        new Pin(fallPinCount);
     }
 
     public Frames getResults() {
@@ -35,11 +39,11 @@ public class BowlingGame {
     }
 
     public boolean hasNext() {
-        return frames.hasNext();
+        return frames.isLastBowl();
     }
 
-    public int getFrameNumber() {
-        return frames.getFrameNumber();
+    public FrameIndex getFrameIndex() {
+        return frames.getFrameIndex();
     }
 
     public String getPlayer() {
