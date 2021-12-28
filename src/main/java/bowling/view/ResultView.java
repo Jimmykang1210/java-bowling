@@ -1,8 +1,5 @@
 package bowling.view;
 
-import bowling.domain.Frame;
-
-import java.util.List;
 import java.util.stream.IntStream;
 
 public class ResultView {
@@ -21,12 +18,12 @@ public class ResultView {
                 .forEach(number -> System.out.format(RESPONSE_RESULT_RIGHT_ALIGN_MESSAGE, RESPONSE_RESULT_EMPTY_MESSAGE));
     }
 
-    public static void responseBowlingFrame(String playerName, List<Frame> results) {
-        printBowlingHeader();
-        printBowlingPlayer(playerName);
-        results.stream()
-                    .map(frame -> System.out.format(RESPONSE_RESULT_RIGHT_ALIGN_MESSAGE, frame));
-    }
+//    public static void responseBowlingFrame(BowlingGame bowlingGame) {
+//        printBowlingHeader();
+//        printBowlingPlayer(bowlingGame.getPlayer());
+//        bowlingGame.getFrames().stream()
+//                    .map(frame -> System.out.format(RESPONSE_RESULT_RIGHT_ALIGN_MESSAGE, frame));
+//    }
 
     private static void printBowlingHeader() {
         printBowlingPlayer(RESPONSE_NAME_MESSAGE);
